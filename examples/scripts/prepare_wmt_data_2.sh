@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# set relevant paths
+SP_PATH=/usr/local/bin
+DATA_PATH=$1
+TEST_PATH=$DATA_PATH/test
+
+CUR_DIR=$(pwd)
+
 ##################################################################################
 # Starting from here, original files are supposed to be in $DATA_PATH
 # a data folder will be created in scripts/wmt
@@ -19,9 +26,6 @@ if true; then
     cat $f >> $DATA_PATH/train.txt
    done
  done
- spm_train --input=$DATA_PATH/train.txt --model_prefix=$DATA_PATH/wmt$sl$tl \
-           --vocab_size=$vocab_size --character_coverage=1
- rm $DATA_PATH/train.txt
 fi
 
 # Second we use the trained model to tokenize all the files
