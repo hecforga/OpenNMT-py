@@ -7,6 +7,21 @@ TEST_PATH=$DATA_PATH/test
 
 CUR_DIR=$(pwd)
 
+# set vocabulary size and source and target languages
+vocab_size=32000
+sl=en
+tl=de
+
+# set training, validation, and test corpuses
+corpus[1]=commoncrawl.de-en
+corpus[2]=europarl-v7.de-en
+corpus[3]=news-commentary-v11.de-en
+
+validset=newstest2014-deen
+testset=newstest2017-ende
+
+cd $CUR_DIR
+
 ##################################################################################
 # Starting from here, original files are supposed to be in $DATA_PATH
 # a data folder will be created in scripts/wmt
